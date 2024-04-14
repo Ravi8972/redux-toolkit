@@ -12,14 +12,20 @@ const productSlice = createSlice({
         data: [],
         status: STATUSES.IDLE,
     },
+    // the below reducers we havent used anywhere that why  it is commented out
     reducers: {   // is  used for simple actions like add or delete item in the list
-        // setProducts(state, action) {
+        //  setProducts(state, action) {     // action - payload
+        //      console.log('action = > '  + JSON.stringify(action));
+        //      console.log(state)
         //     state.data = action.payload;
         // },
         // setStatus(state, action) {
         //     state.status = action.payload;
         // },
     },
+
+    //  extraReducers - additional Redux logic for specific action types and it takes  an object with key-value pairs where keys are extraReducers: builder => {    extraReducers: builder => {     extraReducers: (builder) =>
+
     extraReducers: (builder) => {    //  <-- builder callback is  used to build the reducer logic and  add case reducers to the slice
         builder
             .addCase(fetchProducts.pending, (state, action) => {
@@ -35,7 +41,8 @@ const productSlice = createSlice({
     },
 });
 
-export const { setProducts, setStatus } = productSlice.actions;   // is  exporting actions which we can use in our components 
+// export const { setProducts, setStatus } = productSlice.actions;   // is  exporting actions which we can use in our components 
+
 export default productSlice.reducer;
 
 // Thunks

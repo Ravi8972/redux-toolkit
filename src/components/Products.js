@@ -6,8 +6,9 @@ import { STATUSES } from '../store/productSlice';
 
 const Products = () => {
     const dispatch = useDispatch();
-    const { data: products, status } = useSelector((state) => state.product);
-    // const [products, setProducts] = useState([]);
+    const { data: products, status } = useSelector((state) => state.product);  //  destructuring to get the property "data"
+    // Get the products from Redux store. If they don't exist yet, get them now!
+    //  const [products, setProducts] = useState([]);
 
     useEffect(() => {
         dispatch(fetchProducts());
